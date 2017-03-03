@@ -6,3 +6,12 @@
 *.css.map
 lib/node_modules
 lib/bower_components
+system-config.js*
+app/**/*.js
+app/**/*.map
+node_modules
+jspm_packages
+bower_components
+aot/*
+dist/*
+yarn.lock
