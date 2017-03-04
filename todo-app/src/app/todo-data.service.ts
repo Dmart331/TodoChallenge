@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Todo } from './todo'
 
 @Injectable()
 export class TodoDataService {
@@ -9,7 +10,7 @@ export class TodoDataService {
 
   constructor() { }
 
-
+// Add todo. With Api Change to Getter
 	addTodo(todo: Todo): TodoDataService{
 		if(!todo.id){
 			todo.id = ++this.lastId;
@@ -18,12 +19,14 @@ export class TodoDataService {
 		return this;
 	}
 
+// delete todo
 	deleteTodoById(id: number): TodoDataService {
 		this.todos = this.todos
 			.filter(todo => todo.id !== id);
 		return this;
 	}
 
+// update todo
 	updateTodoById(id: number, values: Object = {}): Todo {
 		let todo = this.getTodoById(id);
 		if(!todo){
@@ -33,6 +36,7 @@ export class TodoDataService {
 		return todo;
 	}
 
+// return all todos
 	getAllTodos(): Todo[]{
 		return this.todos;
 	}
@@ -44,7 +48,7 @@ export class TodoDataService {
 	}
 
 	toggleTodoComplete(todo: Todo){
-		let updatedTodo = this.updateTodoById(todo.id {
+		let updatedTodo = this.updateTodoById(todo.id, {
 			complete: !todo.complete
 		});
 		return updatedTodo;

@@ -1,7 +1,10 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
+import {Todo} from './todo';
 import { TodoDataService } from './todo-data.service';
+
+// Setting up the test bed for the Todo Functions
 
 describe('TodoDataService', () => {
   beforeEach(() => {
@@ -13,6 +16,8 @@ describe('TodoDataService', () => {
   it('should ...', inject([TodoDataService], (service: TodoDataService) => {
     expect(service).toBeTruthy();
   }));
+
+// Test for displaying all Todos
 
   describe('#getAllTodos()', () => {
 
@@ -29,6 +34,8 @@ describe('TodoDataService', () => {
   	}));
   });
 
+// Test for Saving New Todo
+
   describe('#save(todo)', () => {
 
   	it('should automatically assign an incrementing id', inject([TodoDataService], (service: TodoDataService)=> {
@@ -39,6 +46,9 @@ describe('TodoDataService', () => {
   		expect(service.getTodoById(1)).toEqual(todo1);
   		expect(service.getTodoById(2)).toEqual(todo2);
   	}));
+  });
+
+// Test for Deleting Todo 
 
   describe('#deleteTodoById(id)', () => {
 
@@ -54,6 +64,7 @@ describe('TodoDataService', () => {
   		expect(service.getAllTodos()).toEqual([]);
   	}));
 
+// Verify that it is not deleteing anything if the Id Doesn't exist
   	it('should not remove anything if todo with corresponding id is not found', inject([TodoDataService], (service: TodoDataService) => {
   		let todo1 = new Todo({title: 'Hello 1', complete: false});
   		let todo2 = new Todo({title: 'Hello 2', complete: true});
@@ -65,6 +76,7 @@ describe('TodoDataService', () => {
   	}));
   });
 
+// Test for Updating Todo
   describe('#updateTodoById(id, values)', () => {
 
   	it('should return todo with the corresponding id and updated data', inject([TodoDataService], (service: TodoDataService) => {
@@ -75,6 +87,28 @@ describe('TodoDataService', () => {
   		});
   		expect(updatedTodo.title).toEqual('Helllllllo 1');
   	}));
-  })
-  })
+
+// Return Null Value if the todo isn't found
+  	it('should return null if todo is not found', inject([TodoDataService],(service: TodoDataService) => {
+  		let todo = new Todo({title: 'Hello 1', complete: false});
+  		service.addTodo(todo);
+  		let updatedTodo = service.updateTodoById(2, {
+  			title: 'new title'
+  		});
+  		expect(updatedTodo).toEqual(null);
+  	}));
+  });
+
+  // Toggle Todo Completion
+  describe('#toggleTodoComplete(todo)', () => {
+
+  	it('should return the updated todo with inverse complete status', inject([TodoDataService], (service: TodoDataService) => {
+  		let todo = new Todo({title: 'Hello 1', complete: false});
+  		service.addTodo(todo);
+  		let updatedTodo = service.toggleTodoComplete(todo);
+  		expect(updatedTodo.complete).toEqual(true);
+  		service.toggleTodoComplete(todo);
+  		expect(updatedTodo.complete).toEqual(false);
+  	}));
+  });
 });
