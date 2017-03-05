@@ -7,8 +7,8 @@ describe('todo-app App', function() {
     page = new TodoAppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display input box for adding todo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Todos');
   });
 });
