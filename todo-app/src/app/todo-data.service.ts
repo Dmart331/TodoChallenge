@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './todo'
+import { Todo } from './todo';
 
 @Injectable()
 export class TodoDataService {
 
 	lastId: number = 0;
-
 	todos: Todo[] = [];
+
 
   constructor() { }
 
-// Add todo. With Api Change to Getter
+
+// Add todo. With Api -- Change to HTTP GET
 	addTodo(todo: Todo): TodoDataService{
 		if(!todo.id){
 			todo.id = ++this.lastId;

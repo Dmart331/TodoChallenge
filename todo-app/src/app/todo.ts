@@ -1,7 +1,7 @@
 export class Todo {
 	id: number;
 	title: string = '';
-	category: string = '';
+	category: string ='';
 	complete: boolean = false;
 
 	constructor(values: Object = {}){
@@ -11,5 +11,6 @@ export class Todo {
 
 let todo = new Todo({
 	title: 'Read SitePoint article',
+	category: 'Household',
 	complete: false
 });

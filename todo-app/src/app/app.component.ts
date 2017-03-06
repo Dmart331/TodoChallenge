@@ -11,10 +11,10 @@ import { TodoDataService } from './todo-data.service';
 export class AppComponent {
 
 	newTodo: Todo = new Todo();
-
   constructor(private todoDataService: TodoDataService){
 
   }
+
   addTodo(todo) {
   	this.todoDataService.addTodo(this.newTodo);
   	this.newTodo = new Todo();
