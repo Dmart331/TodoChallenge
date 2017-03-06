@@ -16,7 +16,7 @@ Below you will find steps to get this starter project up and running.
     - [Documentation](https://v4-alpha.getbootstrap.com/components)
 
 - ng2-bootstrap
-    - [Documentation](http://valor-software.com/ng2-bootstrap/#/)
+
 
 
 
