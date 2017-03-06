@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 
 
-let todos = 
+
 @Injectable()
 export class TodoDataService {
 
