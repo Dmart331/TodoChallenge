@@ -9,6 +9,7 @@ export class Todo {
 	}
 }
 
+// Build the object
 let todo = new Todo({
 	title: 'Read SitePoint article',
 	category: 'Household',
