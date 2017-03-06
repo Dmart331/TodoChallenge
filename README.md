@@ -2,8 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
 
-Below you will find steps to get this starter project up and running. Following will be
-the requirements of the exercise.
+Below you will find steps to get this starter project up and running. 
 
 
 ## Requirements
