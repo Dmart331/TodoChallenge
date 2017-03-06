@@ -25,6 +25,10 @@ export class AppComponent {
   removeTodo(todo){
   	this.todoDataService.deleteTodoById(todo.id);
   }
+  updateTodo(todo) {
+  	this.todoDataService.updateTodoById(todo.id)
+
+}
   get todos(){
   	return this.todoDataService.getAllTodos();
   }
