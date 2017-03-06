@@ -42,14 +42,6 @@ Below you will find steps to get this starter project up and running.
 
 - ENJOY THE PROCESS
 
-
-
-#### What makes a todo item
-- task
-- category
-- status
-
-
 ## Bonuses Hit
 
 - Test coverage
